@@ -1,36 +1,29 @@
 <html lang="en"><head>
   <meta charset="UTF-8">
 </head>
-
 <body translate="no">
   <iframe id="userplayer" frameborder="0" width="1082" height="881" style="position: absolute;top: 0;left: 0;" src="https://dev.livedigital.space:3000" allow="camera;microphone;fullscreen;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; display-capture" allowusermedia=""></iframe>
-      <script id="rendered-js">
-const url = 'https://dev.livedigital.space:3000';
+  <script>
+    window.addEventListener('load', () => {
+      const url = 'https://dev.livedigital.space:3000';
 
-const onresize = e => {
-  document.querySelector('#userplayer').setAttribute('width', window.innerWidth);
-  document.querySelector('#userplayer').setAttribute('height', window.innerHeight);
-  console.log(window.innerWidth, window.innerHeight);
-};
+      const onresize = e => {
+        document.querySelector('#userplayer').setAttribute('width', window.innerWidth);
+        document.querySelector('#userplayer').setAttribute('height', window.innerHeight);
+        console.log(window.innerWidth, window.innerHeight);
+      };
 
-setTimeout(onresize, 1);
+      setTimeout(onresize, 1);
 
-window.addEventListener('resize', onresize);
+      window.addEventListener('resize', onresize);
 
-window.addEventListener('load', () => {
-  const a = url + window.parent.location.hash.slice(1);
-  console.log({ a });
-  document.querySelector('#userplayer').setAttribute('src', a);
-});
+      const a = url + window.parent.location.hash.slice(1);
+      console.log({ a });
+      document.querySelector('#userplayer').setAttribute('src', a);
 
-setTimeout(() => {
-  const a = url + window.location.hash.slice(1);
-  console.log({ a });
-  document.querySelector('#userplayer').setAttribute('src', a);
-}, 1);
-
-window.addEventListener('message', m => {
-  console.log({ m });
-});
-    </script>
+      window.addEventListener('message', (m) => {
+        console.log({ m });
+      });
+    });
+  </script>
 </body></html>
