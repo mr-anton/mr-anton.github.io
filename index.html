@@ -4,7 +4,6 @@
 
 <body translate="no">
   <iframe id="userplayer" frameborder="0" width="1082" height="881" style="position: absolute;top: 0;left: 0;" src="https://dev.livedigital.space:3000" allow="camera;microphone;fullscreen;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; display-capture" allowusermedia=""></iframe>
-    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
       <script id="rendered-js">
 const url = 'https://dev.livedigital.space:3000';
 
@@ -25,7 +24,7 @@ window.addEventListener('load', () => {
 });
 
 setTimeout(() => {
-  const a = url + window.parent.location.hash.slice(1);
+  const a = url + window.location.hash.slice(1);
   console.log({ a });
   document.querySelector('#userplayer').setAttribute('src', a);
 }, 1);
