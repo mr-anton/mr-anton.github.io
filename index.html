@@ -2,25 +2,25 @@
   <meta charset="UTF-8">
 </head>
 <body translate="no">
-  <iframe id="userplayer" frameborder="0" width="1082" height="881" style="position: absolute;top: 0;left: 0;" src="https://dev.livedigital.space:3000/room/Y9ZoDXTHwx?iframe=1" allow="camera;microphone;fullscreen;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; display-capture" allowusermedia=""></iframe>
+  <iframe id="userplayer" frameborder="0" width="1082" height="881" style="position: absolute;top: 0;left: 0;" src="https://ld-886-safari-iframe-storage-request.staging.livedigital.space/" allow="camera;microphone;fullscreen;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; display-capture" allowusermedia=""></iframe>
   <script>
     window.addEventListener('load', () => {
-      const url = 'https://dev.livedigital.space:3000/';
+      const url = 'https://ld-886-safari-iframe-storage-request.staging.livedigital.space/';
 
-      const onresize = e => {
+      const onResize = (e) => {
         document.querySelector('#userplayer').setAttribute('width', window.innerWidth);
         document.querySelector('#userplayer').setAttribute('height', window.innerHeight);
-        console.log(window.innerWidth, window.innerHeight);
+        console.log({ w: window.innerWidth, h: window.innerHeight });
       };
 
-      setTimeout(onresize, 1);
+      setTimeout(onResize, 1);
 
-      window.addEventListener('resize', onresize);
+      window.addEventListener('resize', onResize);
 
-      document.querySelector('#userplayer').setAttribute('src', url + window.parent.location.search.slice(1));
+      document.querySelector('#userplayer').setAttribute('src', (url + window.parent.location.search.slice(1)).replace('//', '/'));
 
-      window.addEventListener('message', (m) => {
-        console.log({ m });
+      window.addEventListener('message', (message) => {
+        console.log({ message });
       });
     });
   </script>
